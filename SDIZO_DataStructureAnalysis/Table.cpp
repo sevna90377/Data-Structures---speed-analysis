@@ -91,11 +91,11 @@ bool Table::isValueInTable(int value) {
 	return false;
 }
 
-void Table::loadFromFile(string fileName) {
+void Table::loadFromFile(string filename) {
 	ifstream myFile;
 	int amount, value;
 
-	myFile.open(fileName);
+	myFile.open(filename);
 
 	if (myFile.is_open())
 	{
@@ -121,18 +121,21 @@ void Table::loadFromFile(string fileName) {
 
 void Table::generateTable(int table_length) {
 
-	//usuniêcie ewentualnych wartoœci ju¿ obecnych w tablicy
+	//usuniêcie obecnej tablicy
 	deleteAll();
+	delete headPointer;
+
+	//alokacja pamiêci
+	headPointer = new int[table_length];
+	this->table_length = table_length;
 
 	//pobranie ziarna dla generatora 
-	srand(time(0));
+	srand((unsigned int)time(0));
 
 	//zape³nienie tablicy losowymi wartoœciami (nieokreœlony przedzia³)
 	for (int i = 0; i < table_length; i++) {
-		addValue(i, rand());
+		headPointer[i] = rand();
 	}
-
-	display();
 }
 
 void Table::display() {

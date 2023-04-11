@@ -1,9 +1,10 @@
 // menu.cpp : Defines the entry point for the console application.
 //
 
-#include<conio.h>
-#include<string>
-#include<iostream>
+#include <conio.h>
+#include <string>
+#include <iostream>
+#include "AutoTest.h"
 #include "Table.h"
 #include "List.h"
 #include "Heap.h"
@@ -101,13 +102,17 @@ void testMenu() {
 	
 	cout << endl;
 	cout << "---------MENU TESTÓW---------" << endl;
-	cout << "2.Usun" << endl;
-	cout << "3.Dodaj" << endl;
-	cout << "4.Znajdz" << endl;
-	cout << "5.Utworz losowo" << endl;
-	cout << "6.Wyswietl" << endl;
-	cout << "0.Powrot do menu" << endl;
+	cout << "1. dodawanie na pocz¹tku		>>tablica/lista<<" << endl;
+	cout << "2. dodawanie na koñcu			>>tablica/lista<<" << endl;
+	cout << "3. dodawanie w losowym miejscu >>tablica/lista<<" << endl;
+	cout << "4. usuwanie z pocz¹tku			>>tablica/lista/kopiec<<" << endl;
+	cout << "5. usuwanie z koñca			>>tablica/lista<<" << endl;
+	cout << "6. usuwanie z losowego miejsca >>tablica/lista<<" << endl;
+	cout << "7. wyszukiwanie				>>tablica/lista/kopiec" << endl;
+	cout << "8. dodawanie					>>kopiec<<" << endl;
 	cout << "Podaj opcje:";
+
+
 }
 
 //Table myTab; //myTab mo¿e byæ dynamiczna, mo¿e byc takze zadeklarowana w manu_table albo tutaj jako zmienna globalna 
@@ -169,8 +174,12 @@ void menu_table()
 			table.display();
 			break;
 
-		case 's': //tutaj nasza funkcja do eksperymentów (pomiary czasów i generowanie daneych) - nie bêdzie testowana przez prowadz¹cego 
+		case 's': //tutaj nasza funkcja do eksperymentów (pomiary czasów i generowanie danych) - nie bêdzie testowana przez prowadz¹cego 
 			      // mo¿na sobie tu dodaæ w³asne dodatkowe case'y
+
+			AutoTest autoTest;
+			autoTest.tableTest();
+
 			break;
 		}
 
@@ -237,6 +246,7 @@ void menu_list()
 
 		case 's': //tutaj nasza funkcja do eksperymentów (pomiary czasów i generowanie daneych) - nie bêdzie testowana przez prowadz¹cego 
 			// mo¿na sobie tu dodaæ w³asne dodatkowe case'y
+
 			break;
 		}
 
@@ -300,6 +310,9 @@ void menu_heap()
 
 		case 's': //tutaj nasza funkcja do eksperymentów (pomiary czasów i generowanie daneych) - nie bêdzie testowana przez prowadz¹cego 
 			// mo¿na sobie tu dodaæ w³asne dodatkowe case'y
+
+			AutoTest autoTest();
+
 			break;
 		}
 
@@ -332,8 +345,9 @@ int main(int argc, char* argv[])
 
 		case '3':
 			menu_heap();
-			break;		
+			break;
 		}
+
 
 	} while (option != '0');
 	
